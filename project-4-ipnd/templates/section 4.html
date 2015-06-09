@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Section 4 Review - The Full Stack</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+      <div class="bsd">BS"D</div>
+      <h2>{{error_message}}</h2>
+      <div class="lesson">
+        <h1>Lesson 1: Introduction to Networks</h1>
+              <div class="lesson-content">
+                  <h2>Network</h2>
+                    A network is a group of entities that can communicate, even though they are not all directly connected. These entities may be people, computers or other objects which are connected via an intermediary.
+              </div>
+              <div class="lesson-content">
+                  <h2>Latency</h2>
+                    Latency is the time it takes for a message to get from the source to its destination. This time is measured from the moment the message is started sending until it's received. Latency may be measured in milliseconds.
+              </div>
+              <div class="lesson-content">
+                  <h2>Bandwidth</h2>
+                    Bandwidth is the amount of information that can be transmitted in a given amount of time - the rate of transfer. Bandwith may be measured in bits per second.
+              </div>
+              <div class="lesson-content">
+                  <h2>What is a bit?</h2>
+                    A bit is the smallest unit of information. This takes the form of 0 and 1 (which represents a choice, for example yes/no or on/off).
+              </div>
+              <div class="lesson-content">
+                  <h2>Protocols</h2>
+                    A protocol is a set of rules that allow two entities to communicate with each other. In the web this is the communication between the client (the web browser) and the server (e.g. udacity.com) and this takes place using the Hypertext Transfer Protocol (HTTP).
+              </div>
+      </div>
+      <div class="lesson">
+        <h1>Lesson 2: Make the Internet Work for You</h1>
+              <div class="lesson-content">
+                <h2>URLs</h2>
+                  URL is an acronymn for Uniform Resource Locator. The URL is made up of three sections:<br>
+                    <div class="example">               
+                      <code>http</code> --> Protocol<br>
+                      <code>://</code><br>
+                      <code>www.udacity.com</code --> Host (this can also be an IP address)<br>
+                      <code>/</code> --> Path<br>
+                    </div>
+              </div>
+              <div class="lesson-content">
+                <h2>Query Parameters (GET Parameters)</h2>
+                  <span class="example"><code>http://example.com/foo<strong>?p=1</strong></code></span><br>
+                  Name = value<br>
+                  To add extra parameters a ? is used.<br>
+                  <span class="example"><code>http://example.com/foo<strong>?p=1&amp;q=neat</strong><code></span>
+              </div>
+              <div class="lesson-content">
+                <h2>Fragments</h2>
+                  A fragment is generally used to reference a particular part of the page. The fragment is not sent to the server when making a request purely used in the browser. E.g.<br>
+                    <span class="example"><code>http://www.example.com/foo<strong>#fragment</strong></code></span><br>
+                    <span class="example"><code>http://example.com/foo?p=1<strong>#fragment</strong></code></span>
+              </div>
+              <div class="lesson-content">
+                <h2>Ports</h2>
+                  An internet connection requires a host and a port. By default the port is 80. However, an alternative port may be accessed by including the port in the path in between the host and the path separated by a colon. E.g.<br>
+                    <span class="example"><code>http://localhost<strong>:8000</strong>/</code></span>
+              </div>
+              <div class="lesson-content">
+                <h2>HTTP Request</h2>
+                  Hyper Text Transfer Protocol works by sending a request line. This is divided into 3 sections: method, path and version.<br>
+                    <div class="example">
+                      http://www.example.com/foo<br>
+                      GET /foo HTTP/1.1 --> request line<br>
+                      GET --> method - what type of request is being made to the server<br>
+                      foo --> path - the document requested from the server<br>
+                      HTTP/1.1 - version (either 1.1 or 1.0)<br>
+                      <strong>Note: </strong>The host name is not a part of the request line in the relative path for that URL.
+                    </div>
+                  After the request line there are a number of headers.<br>
+                    <div class="example">
+                      Host: www.example.com<br>
+                      User-Agent: chrome v.17<br>
+                    </div>
+              </div>
+              <div class="lesson-content">
+                <h2>HTTP Responses</h2>
+                  A reponse is in the form of the status line.<br>
+                    <div class="example">
+                      HTTP/1.1 200 Ok<br>
+                      HTTP/1.1 --> version - this matches the version of the request line<br>
+                      200 --> status code<br>
+                      Ok --> Response phrase<br>
+                      Other common status codes: 302 Found, 404 Not found, 500 Server Error
+                    </div>
+                  The status line is also followed by a number of headers. E.g.<br>
+                    <div class="example">
+                      HTTP/1.1 00 Ok<br>
+                      Date: Tue Mar 2012 04:33:33 GMT --> when the request was sent<br>
+                      Server: Apache /2.2.3 --> the server handling the response<br>
+                      Content-Type: text/html;<br>
+                      Content-Length:1539
+                    </div>
+              </div>
+              <div class="lesson-content">
+                <h2>Servers</h2>
+                  Purpose: repond to HTTP requests. There are two classifications of server responses: static and dynamic. Static content is pre-written files, examples include images. Dynamic responses are made on the fly by web applications (programs which generate content).
+              </div>
+      </div>
+      <div class="lesson">
+        <h1>Lesson 3: Forms</h1>
+              <div class="lesson-content">
+                <h2>HTML Forms</h2>
+                  <p>HTML forms use the tag <code>&lt;form&gt;</code>. Input may be added into the form tag, this may have an attribute called name with any value. E.g.</p>
+                    <div class="example">
+                      <code>
+                        &lt;form&gt;<br>
+                        &nbsp;&lt;input name="name"&gt;<br>
+                        &lt;/form&gt;
+                      </code>
+                    </div>
+                  <p>A submit button can be added to the input too by adding <span class="example"><code>&lt;input type="submit"&gt;</code></span></p>
+                  <p>Action is an attribute which can be added to form and will send the result here. E.g. <span class="example"><code>&lt;form action="/foo"&gt;</code></span></p>
+                  <p>The type of the input may be defined. By default the type is text, however this may be changed. E.g. <span class="example"><code>&lt;input type="password"&gt;</code></span> or <span class="example"><code>&lt;input type="checkbox"&gt;</code></span> or <span class="example"><code>&lt;input type="radio"&gt;</code></span></p>
+                  <p>A value may be added to control the output for radio buttons or checkboxes. E.g. <span class="example"><code>&lt;input type="radio" name="q" value="one"&gt;</code></span></p>                
+              </div>
+              <div class="lesson-content">
+                <h2>Label Element</h2>
+                  <p>The label element may be used to give a title to each specific input used on a form. E.g.</p>
+                    <div class="example">
+                      <code>
+                        &lt;form&gt;<br>
+                          &nbsp;&lt;label&gt;<br>
+                            &nbsp;&nbsp;One<br>
+                            &nbsp;&nbsp;&lt;input type="radio" name="q" value="one"<br>
+                         &nbsp;&lt;/label&gt;<br> 
+                          &nbsp;&lt;label&gt;<br>
+                            &nbsp;&nbsp;Two<br>
+                            &nbsp;&nbsp;&lt;input type="radio" name="q" value="two"<br>
+                         &nbsp;&lt;/label&gt;<br>
+                        &lt;/form&gt;<br>
+                      </code>
+                    </div>
+              </div>
+              <div class="lesson-content">
+                <h2>Select Element</h2>
+                  <p>A select element is used to provide a drop-down list. E.g.</p>
+                    <div class="example">
+                      <code>
+                        &lt;form&gt;<br>
+                          &nbsp;&lt;select name="q"&gt;<br>                        
+                            &nbsp;&nbsp;&lt;option&gt;one&lt;/option&gt;<br>
+                            &nbsp;&nbsp;&lt;option&gt;two&lt;/option&gt;<br>
+                            &nbsp;&nbsp;&lt;option&gt;three&lt;/option&gt;<br>
+                          &nbsp;&lt;/select&gt;<br>
+                        &lt;/form&gt;<br>                
+                      </code>
+                    </div>
+              </div>
+      </div>
+      <div class="lesson">
+        <h1>Lesson 4: Modules and Dictionaries</h1>
+              <div class="lesson-content">
+                <h2>Modulus Operator</h2>
+                  <p>The modulus operator is the remmainder from divided a number into another number. E.g.</p>
+                    <div class="example">
+                      15 % 12 --> 3<br>
+                      15 % 11 --> 4<br>
+                      4 % 3 --> 1<br>
+                      3 % 4 --> 3
+                    </div>
+              </div>
+              <div class="lesson-content">
+                <h2>Dictionary</h2>
+                  <p>A dictionary is created using {}, ad the entries are key value pairs. The keys can be any immutable value. Dictionary is mutable. The value of the key may be displayed by using <span class="example"><code>d[k]</code> - where the value of k in d will be displayed.</span>E.g.</p>
+                    <div class="example">
+                      <code>
+                        elements = { 'hydrogen': 1, 'helium': 2, 'carbon': 6 }<br>
+                         print elements> --> this will print the dictionary<br>
+                         print elements['hydrogen'] --> this will print the value 1<br>
+                         print elements['lithium'] --> this will return a key error as there is no lithium in the dictionary<br>
+                         print 'lithium' in elements --> this will return false as lithium is not in the dictionary<br>
+                         elements['lithium'] = 3 --> this will add lithium to the dictionary
+                      </code>
+                    </div>
+               </div>
+               <div class="lesson-content">
+                <h2>GET vs POST</h2>
+                  <table style="width:100%">
+                    <tr>
+                      <th>GET</th>
+                      <th>POST</th>
+                    </tr>
+                    <tr>
+                      <td>Parameters in URL</td>
+                      <td>Parameters in body</td>
+                    </tr>
+                    <tr>
+                      <td>Used for fetching documents</td>
+                      <td>Used for updating data</td>
+                    </tr>
+                    <tr>
+                      <td>Affected by maximum URL length</td>
+                      <td>No max length</td>
+                    </tr>
+                    <tr>
+                      <td>OK to cache</td>
+                      <td>Not OK to cache</td>
+                    </tr>
+                    <tr>
+                      <td>Shouldn't change the server</td>
+                      <td>Ok to change the server</td>
+                    </tr>
+                  </table>                  
+               </div>
+               <div class="lesson-content">
+                 <h2>HTML Templates</h2>
+                  <p>Templates refer to a libary used to build complicated strings. In Google App Engine we can use junja2 which is built in. Templates allow programmers to avoid repetition which means complicated code is reduced and the room for errors is removed. In addition templates mean the applications or web pages created can be scalable and not require new code to be created each time there are any additions. The code may also be change in one place which will alter the whole process rather than needing to edit each separate addition of code which would be necessary without templates. Validation is crucial to ensure the security of applications preventing malicious attacks for example from forms on websites, by prohbiting the addition and execution of code.                                   
+                  </p>
+              </div>
+              </div>
+      
+      <br>
+      <br>
+      <div class="lesson">
+        <h1>{{post_space}}</h1>
+        {% block content %}{% endblock %}
+      </div>
+      {% if continue_posts %}
+      <div>
+        <h3><a href="/?post_space={{post_space}}&continue_posts={{continue_posts}}">Get Next 10 Posts</a></h3>
+      </div>
+      {% endif %}
+      <br>
+      <div class="lesson">
+        <h1>Currently logged in as: {{user_name}}</h1>
+        <h2><span class="example"><a href="{{url}}">{{url_linktext}}</a></span></h2>
+        <div class="lesson-content">
+           <form class="form-submission" action="/sign?post_space={{post_space}}" method="post">
+            <textarea name="content" rows="5" cols="90" placeholder="Enter your additional points here"></textarea><br>
+            <input type="submit" class="btn btn-primary" value="Post Submission">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div>
+
+  </div>
+</body>
+</html>
